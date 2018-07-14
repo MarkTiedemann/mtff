@@ -95,7 +95,7 @@ MTFF also has a few other characteristics:
   de: Wir sehen uns!
 ```
 
-- **To avoid all-at-once translations**, translations MAY be marked with `???`, in which case the value of the first language that is provided will be used as the default value (thus, this is only possible, if at least 2 languages are present), for example:
+- **To avoid all-at-once translations**, translations MAY be marked with `???`, in which case the value of the first language that is provided will be used as the default value (thus, this is only possible if at least 2 languages are present), for example:
 
 ```
 ! file1
@@ -116,9 +116,9 @@ MTFF also has a few other characteristics:
   en: ???
 
 ! Since `en` is the only language that is present, it cannot be used
-! as a fallback.
+! as a fallback. Thus, the above translation file is NOT valid.
 
-! Note: You don't need to escape "???" in a translation if it is part
+! Note: You don't need to escape `???` in a translation if it is part
 ! of a larger string. For example, the following is valid:
 
 ~ three_investigators
@@ -133,7 +133,3 @@ MTFF also has a few other characteristics:
   en: Lopadotemachoselachogaleokranioleipsanodrimhypotrimmatosilphioparaomelitokatakechymenokichlepikossyphophattoperisteralektryonoptekephalliokigklopeleiolagoiosiraiobaphetraganopterygo
   el: λοπαδοτεμαχοσελαχογαλεοκρανιολειψανοδριμυποτριμματοσιλφιοκαραβομελιτοκατακεχυμενοκιχλ­επικοσσυφοφαττοπεριστεραλεκτρυονοπτοκεφαλλιοκιγκλοπελειολαγῳοσιραιοβαφητραγανοπτερύγων
 ```
-
-## License
-
-MIT
