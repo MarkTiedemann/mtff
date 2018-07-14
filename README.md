@@ -22,14 +22,14 @@ MTFF aims to be a minimal, highly-opinionated translation file format that's **p
 
 ```
 ~ trailing_spaces
-  en: Will be cut off automatically.
+  en: Are forbidden.
 ```
 
 ```
 ~ but_i_need_trailing_spaces
-  en: In this case, end the line with a caret:  ^
+  en: In this case, end the line with a caret: ^
 
-! Now, the above line ends with two spaces.
+! Now, the above line ends with a single space.
 ```
 
 ```
@@ -60,13 +60,13 @@ MTFF aims to be a minimal, highly-opinionated translation file format that's **p
 
 MTFF also has a few other characteristics:
 
-* **To avoid inconsistent spacing**, MTFF is whitespace-sensitive for both leading and trailing whitespaces. For example:
+- **To avoid inconsistent spacing**, MTFF is whitespace-sensitive for both leading and trailing whitespaces. For example:
 
-  * Single-line translations MUST be indented with 2 spaces.
-  * Multi-line translations MUST be indented with 4 spaces.
-  * A comment MUST NOT be followed by a space character.
+  - Single-line translations MUST be indented with 2 spaces.
+  - Multi-line translations MUST be indented with 4 spaces.
+  - Line-breaks MUST NOT be preceded by a space character.
 
-* **To avoid missing translations**, the number of language keys in all translation files MUST be equal. For example, the following should NOT be done:
+- **To avoid missing translations**, the number of language keys in all translation files MUST be equal. For example, the following should NOT be done:
 
 ```
 ! file1
@@ -83,7 +83,7 @@ MTFF also has a few other characteristics:
   de: Wir sehen uns!
 ```
 
-* **To avoid confusing translators**, all language keys in all translation files MUST appear in the same order. For example, the following should NOT be done:
+- **To avoid confusing translators**, all language keys in all translation files MUST appear in the same order. For example, the following should NOT be done:
 
 ```
 ~ hello
@@ -95,9 +95,11 @@ MTFF also has a few other characteristics:
   de: Wir sehen uns!
 ```
 
-* **To avoid all-at-once translations**, translations MAY be marked with `???`, in which case the value of the first language that is provided will be used as the default value (thus, this is only possible, if there are at least 2 different languages), for example:
+- **To avoid all-at-once translations**, translations MAY be marked with `???`, in which case the value of the first language that is provided will be used as the default value (thus, this is only possible, if at least 2 languages are present), for example:
 
 ```
+! file1
+
 ~ hello
   en: Hello!
   de: ???
@@ -107,12 +109,31 @@ MTFF also has a few other characteristics:
 !
 ! en: Hello!
 ! de: Hello!
+
+! file2
+
+~ invalid
+  en: ???
+
+! Since `en` is the only language that is present, it cannot be used
+! as a fallback.
+
+! Note: You don't need to escape "???" in a translation if it is part
+! of a larger string. For example, the following is valid:
+
+~ three_investigators
+  en: The Three Investigators
+  de: Die drei ???
 ```
 
-* **To avoid hard-to-read translations**, all lines of a translation file MUST be shorter than 60 characters. For example, the following should NOT be done:
+- **To avoid hard-to-read translations**, all lines of a translation file MUST be shorter than 80 characters. For example, the following should NOT be done:
 
 ```
 ~ just_a_normal_greek_dish
   en: Lopadotemachoselachogaleokranioleipsanodrimhypotrimmatosilphioparaomelitokatakechymenokichlepikossyphophattoperisteralektryonoptekephalliokigklopeleiolagoiosiraiobaphetraganopterygo
   el: λοπαδοτεμαχοσελαχογαλεοκρανιολειψανοδριμυποτριμματοσιλφιοκαραβομελιτοκατακεχυμενοκιχλ­επικοσσυφοφαττοπεριστεραλεκτρυονοπτοκεφαλλιοκιγκλοπελειολαγῳοσιραιοβαφητραγανοπτερύγων
 ```
+
+## License
+
+MIT
