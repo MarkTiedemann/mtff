@@ -139,7 +139,7 @@ MTFF also has a few other characteristics:
 ! Lines which exceed the 80 characters limit should be split
 ! into multiple lines to increase readability. For example:
 
-~ valid:
+~ valid:
   en: (
     This translation is not
     waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaay
