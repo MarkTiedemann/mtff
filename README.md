@@ -126,10 +126,25 @@ MTFF also has a few other characteristics:
   de: Die drei ???
 ```
 
-- **To avoid hard-to-read translations**, all lines of a translation file MUST be shorter than 80 characters. For example, the following should NOT be done:
+- **To avoid hard-to-read translations**, all lines of a translation file MUST be shorter than 80 characters, except if the line contains a single word which exceeds this limit (including indentation). For example:
 
 ```
-~ just_a_normal_greek_dish
+~ valid
   en: Lopadotemachoselachogaleokranioleipsanodrimhypotrimmatosilphioparaomelitokatakechymenokichlepikossyphophattoperisteralektryonoptekephalliokigklopeleiolagoiosiraiobaphetraganopterygo
   el: λοπαδοτεμαχοσελαχογαλεοκρανιολειψανοδριμυποτριμματοσιλφιοκαραβομελιτοκατακεχυμενοκιχλ­επικοσσυφοφαττοπεριστεραλεκτρυονοπτοκεφαλλιοκιγκλοπελειολαγῳοσιραιοβαφητραγανοπτερύγων
+
+~ invalid
+  en: This translation is waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaay tooooooooooooooooooooooooooooooooooo looooooooooooooooooooooooooooooooong.
+
+! Lines which exceed the 80 characters limit should be split
+! into multiple lines to increase readability. For example:
+
+~ valid:
+  en: (
+    This translation is not
+    waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaay
+    tooooooooooooooooooooooooooooooooooo
+    looooooooooooooooooooooooooooooooong
+    anymore.
+  )
 ```
